@@ -1,17 +1,20 @@
 var timeDisplayEl = $('#time-display');
-var userInputEl =('#inputGroup-sizing-lg');
-var formEl = ('event-form');
-var rightNow = (moment().format());
+var userInputEl = $('input[name=9:00]');
+var formEl = $('event-form');
+//var rightNow = moment();
+//$('time-display').text(rightNow)
+
 
 // Adds date to the top of the page
 function displayTime() {
-    var rightNow = moment().format("MMM DD, YYYY [at] hh:mm:ss a"); timeDisplayEl.text(rightNow);
+    var rightNow = moment().format("MMM Do YYYY"); 
+    timeDisplayEl.text(rightNow);
 }
 
 function handleScheduleData (event){
 event.preventDefault();
 
-console.log('Event Data', userInputEl.val())
+console.log("9:00", userInputEl.val())
 }
 
 function addColor (event){
@@ -28,6 +31,8 @@ function addColor (event){
 var isFuture = rightNow > rightNow
 
 var isPast = rightNow < rightNow
+
+formEl.on('submit', handleScheduleData)
 
 
 
